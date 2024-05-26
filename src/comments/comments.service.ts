@@ -1,5 +1,6 @@
 import {Injectable} from '@nestjs/common';
 import {CreateCommentDto} from './dto/create-comment.dto';
+import {UpdateCommentDto} from './dto/update-comment.dto';
 import {Comment} from './schemas/comment.schemas';
 import {Model} from 'mongoose';
 import {InjectModel} from '@nestjs/mongoose';
@@ -29,6 +30,7 @@ export class CommentsService {
                 parent: null,
             })
             .populate(['user', 'parent'])
+            .sort({createdAt: -1})
             .exec();
     }
 
@@ -38,6 +40,7 @@ export class CommentsService {
                 parent: parentId,
             })
             .populate(['user', 'parent'])
+            .sort({createdAt: -1})
             .exec();
     }
 
@@ -45,7 +48,8 @@ export class CommentsService {
         return `This action returns a #${id} comment`;
     }
 
-    update(id: number) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    update(id: number, updateCommentDto: UpdateCommentDto) {
         return `This action updates a #${id} comment`;
     }
 

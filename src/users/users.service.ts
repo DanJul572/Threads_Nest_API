@@ -1,5 +1,6 @@
 import {Injectable} from '@nestjs/common';
 import {CreateUserDto} from './dto/create-user.dto';
+import {UpdateUserDto} from './dto/update-user.dto';
 import {InjectModel} from '@nestjs/mongoose';
 import {User} from './schemas/user.schemas';
 import {Model} from 'mongoose';
@@ -21,7 +22,8 @@ export class UsersService {
         return `This action returns a #${id} user`;
     }
 
-    update(id: number) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    update(id: number, updateUserDto: UpdateUserDto) {
         return `This action updates a #${id} user`;
     }
 
