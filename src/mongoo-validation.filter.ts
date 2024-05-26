@@ -1,5 +1,5 @@
-import { ArgumentsHost, Catch, RpcExceptionFilter } from '@nestjs/common';
-import { Error } from 'mongoose';
+import {ArgumentsHost, Catch, RpcExceptionFilter} from '@nestjs/common';
+import {Error} from 'mongoose';
 import ValidationError = Error;
 
 @Catch(ValidationError)

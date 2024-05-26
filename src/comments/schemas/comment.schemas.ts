@@ -1,10 +1,10 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { HydratedDocument } from 'mongoose';
-import { User } from 'src/users/schemas/user.schemas';
+import {Prop, Schema, SchemaFactory} from '@nestjs/mongoose';
+import mongoose, {HydratedDocument} from 'mongoose';
+import {User} from 'src/users/schemas/user.schemas';
 
 export type CommentDocument = HydratedDocument<Comment>;
 
-@Schema({ timestamps: true })
+@Schema({timestamps: true})
 export class Comment {
     @Prop()
     text: string;
@@ -12,10 +12,10 @@ export class Comment {
     @Prop()
     likes: number;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'User' })
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'User'})
     user: User;
 
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' })
+    @Prop({type: mongoose.Schema.Types.ObjectId, ref: 'Comment'})
     parent: Comment | null;
 }
 
